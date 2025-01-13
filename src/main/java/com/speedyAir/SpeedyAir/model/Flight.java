@@ -15,7 +15,7 @@ public class Flight {
 	private String start;
 	private String destination;
 	private Order orders[];
-	private int totalOrders = 0;
+	private int totalOrders;
 
 	/**
 	 * Instantiate Flight object to have flight number, day of flight departure, and
@@ -32,6 +32,7 @@ public class Flight {
 		this.start = departure;
 		this.destination = destination;
 		this.orders = new Order[MAX_ORDERS];
+		this.totalOrders = 0;
 	}
 
 	/**
@@ -40,7 +41,7 @@ public class Flight {
 	 * @return Integer representing order number.
 	 */
 	public int getNumber() {
-		return number;
+		return this.number;
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class Flight {
 	 * @return Integer representing day of flight.
 	 */
 	public int getDay() {
-		return day;
+		return this.day;
 	}
 
 	/**
@@ -58,7 +59,7 @@ public class Flight {
 	 * @return departure city as String.
 	 */
 	public String getStart() {
-		return start;
+		return this.start;
 	}
 
 	/**
@@ -67,7 +68,7 @@ public class Flight {
 	 * @return destination city as String.
 	 */
 	public String getDestination() {
-		return destination;
+		return this.destination;
 	}
 
 	/**
@@ -78,8 +79,7 @@ public class Flight {
 	 */
 	public void addOrder(Order order) {
 		if (totalOrders < MAX_ORDERS) {
-			order.setScheduled(true);
-			order.setFlight(this);
+			order.setScheduledFlight(this);
 			orders[totalOrders] = order;
 			totalOrders++;
 		}
@@ -103,7 +103,7 @@ public class Flight {
 	 * @return orders in this Flight.
 	 */
 	public Order[] getOrders() {
-		return orders;
+		return this.orders;
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class Flight {
 	 * @return Integer that is the total number of orders in this Flight.
 	 */
 	public int getTotalOrders() {
-		return totalOrders;
+		return this.totalOrders;
 	}
 
 	/**
@@ -121,7 +121,14 @@ public class Flight {
 	 * @return boolean to represent if the Flight has reached capacity for orders.
 	 */
 	public boolean isFull() {
-		return totalOrders == MAX_ORDERS;
+		return this.totalOrders == MAX_ORDERS;
+	}
+
+	/**
+	 * @return departure city of this Flight.
+	 */
+	public String getDeparture() {
+		return this.start;
 	}
 
 }

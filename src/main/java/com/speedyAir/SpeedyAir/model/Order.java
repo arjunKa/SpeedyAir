@@ -9,39 +9,35 @@ package com.speedyAir.SpeedyAir.model;
  */
 public class Order {
 
-	private int number;
+	private int orderNumber;
 	private String destination;
-	private boolean scheduled = false;
-	private Flight flight;
+	private String departure;
+	private int flightDay;
+	private int flightNumber;
+	private boolean scheduled;
 
 	/**
 	 * Instantiate an Order object.
 	 * 
-	 * @param number      Order number for this order
+	 * @param orderNumber Order number for this order
 	 * @param destination destination city for this order
 	 */
-	public Order(int number, String destination) {
-		this.number = number;
+	public Order(int orderNumber, String destination) {
+		this.orderNumber = orderNumber;
 		this.destination = destination;
-
+		this.scheduled = false;
 	}
 
 	/**
-	 * Set this order's scheduled status to {@code true} or {@code false}.
+	 * Scheduled this order to a flight.
 	 * 
-	 * @param b boolean true of false.
+	 * @param flight the flight this order will be on.
 	 */
-	public void setScheduled(boolean b) {
-		this.scheduled = b;
-	}
-
-	/**
-	 * Set the Flight carrying this Order.
-	 * 
-	 * @param f the Flight that carries this Order.
-	 */
-	public void setFlight(Flight f) {
-		this.flight = f;
+	public void setScheduledFlight(Flight flight) {
+		this.scheduled = true;
+		this.flightDay = flight.getDay();
+		this.flightNumber = flight.getNumber();
+		this.departure = flight.getDeparture();
 	}
 
 	/**
@@ -59,7 +55,7 @@ public class Order {
 	 * @return integer that is this Order's number.
 	 */
 	public int getNumber() {
-		return this.number;
+		return this.orderNumber;
 	}
 
 	/**
@@ -81,11 +77,10 @@ public class Order {
 		String s;
 		if (scheduled) {
 			s = String.format("order: %s, flightNumber: %d," + " departure: %s, arrival: %s, day: %d",
-					"order-" + String.format("%03d", number), flight.getNumber(), flight.getStart(),
-					flight.getDestination(), flight.getDay());
+					"order-" + String.format("%03d", orderNumber), flightNumber, departure, destination, flightDay);
 
 		} else {
-			s = String.format("order: %s, flightNumber: %s", "order-" + String.format("%03d", number),
+			s = String.format("order: %s, flightNumber: %s", "order-" + String.format("%03d", orderNumber),
 					"not scheduled");
 
 		}
