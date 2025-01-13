@@ -1,0 +1,40 @@
+{
+	"flights": [
+		{
+			"day": 1,
+			"number": 1,
+			"start": "YUL",
+			"arrival": "YYZ"
+		},
+		{
+			"day": 1,
+			"number": 2,
+			"start": "YUL",
+			"arrival": "YYC"
+		},
+		{
+			"day": 1,
+			"number": 3,
+			"start": "YUL",
+			"arrival": "YVR"
+		},
+		{
+			"day": 2,
+			"number": 4,
+			"start": "YUL",
+			"arrival": "YYZ"
+		},
+		{
+			"day": 2,
+			"number": 5,
+			"start": "YUL",
+			"arrival": "YYC"
+		},
+		{
+			"day": 2,
+			"number": 6,
+			"start": "YUL",
+			"arrival": "YVR"
+		}
+	]
+}

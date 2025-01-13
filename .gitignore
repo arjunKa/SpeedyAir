@@ -1,0 +1,8 @@
+*.class
+/.classpath
+/.project
+/.settings/
+/build/
+/target/
+/extra/
+/doc/
