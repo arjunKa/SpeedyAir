@@ -11,7 +11,6 @@ public class Itinerary {
 
 	private List<Flight> flights;
 	private List<Order> orders;
-	private int availableSpace = 0;
 
 	/**
 	 * 
@@ -41,16 +40,6 @@ public class Itinerary {
 	}
 
 	/**
-	 * Returns integer representing amount of space available on a Flight for
-	 * orders.
-	 * 
-	 * @return Integer representing available space for individual orders.
-	 */
-	public int getAvailableSpace() {
-		return availableSpace;
-	}
-
-	/**
 	 * Add a Flight to this Itinerary and increment available space for this
 	 * Itinerary.
 	 * 
@@ -58,7 +47,6 @@ public class Itinerary {
 	 */
 	public void addFlight(Flight flight) {
 		flights.add(flight);
-		this.availableSpace += Flight.MAX_ORDERS;
 	}
 
 	/**
@@ -69,7 +57,6 @@ public class Itinerary {
 	 */
 	public void addOrder(Order order) {
 		orders.add(order);
-		this.availableSpace -= 1;
 
 	}
 

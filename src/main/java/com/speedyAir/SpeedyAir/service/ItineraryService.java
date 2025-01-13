@@ -91,9 +91,6 @@ public class ItineraryService {
 					break; // go to the next order in the list
 				}
 			} // end for loop
-			if (itinerary.getAvailableSpace() == 0) {
-				break; // if all space on flights are full, stop filling orders
-			}
 		} // end for loop
 	}
 
