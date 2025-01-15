@@ -6,14 +6,10 @@ package com.speedyAir.SpeedyAir.model;
 /**
  * The {@code Flight} class represents flight schedules.
  */
-public class Flight {
+public class Flight extends ScheduledEntity {
 
 	/** Max orders that each Flight can carry */
 	public static final int MAX_ORDERS = 20;
-	private int number;
-	private int day;
-	private String start;
-	private String destination;
 	private Order orders[];
 	private int totalOrders;
 
@@ -28,47 +24,11 @@ public class Flight {
 	 */
 	public Flight(int number, int day, String departure, String destination) {
 		this.number = number;
-		this.day = day;
-		this.start = departure;
+		this.dayOfDeparture = day;
+		this.departure = departure;
 		this.destination = destination;
 		this.orders = new Order[MAX_ORDERS];
 		this.totalOrders = 0;
-	}
-
-	/**
-	 * Get order number.
-	 * 
-	 * @return Integer representing order number.
-	 */
-	public int getNumber() {
-		return this.number;
-	}
-
-	/**
-	 * Get day of flight.
-	 * 
-	 * @return Integer representing day of flight.
-	 */
-	public int getDay() {
-		return this.day;
-	}
-
-	/**
-	 * Get departure location of flight.
-	 * 
-	 * @return departure city as String.
-	 */
-	public String getStart() {
-		return this.start;
-	}
-
-	/**
-	 * Get destination of flight.
-	 * 
-	 * @return destination city as String.
-	 */
-	public String getDestination() {
-		return this.destination;
 	}
 
 	/**
@@ -92,8 +52,8 @@ public class Flight {
 	 */
 	@Override
 	public String toString() {
-		String s = String.format("Flight: %d, departure: %s," + " arrival: %s, day: %d", number, start, destination,
-				day);
+		String s = String.format("Flight: %d, departure: %s," + " arrival: %s, day: %d", number, departure, destination,
+				dayOfDeparture);
 		return s;
 	}
 
@@ -122,13 +82,6 @@ public class Flight {
 	 */
 	public boolean isFull() {
 		return this.totalOrders == MAX_ORDERS;
-	}
-
-	/**
-	 * @return departure city of this Flight.
-	 */
-	public String getDeparture() {
-		return this.start;
 	}
 
 }

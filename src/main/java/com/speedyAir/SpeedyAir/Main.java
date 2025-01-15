@@ -16,7 +16,6 @@ public class Main {
 	 * @param args String arguments.
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Itinerary i = new Itinerary();
 		ItineraryService itineraryService = new ItineraryService();
 		Printer printer = new Printer();
